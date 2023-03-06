@@ -1,7 +1,3 @@
-# Design
-
-# A method called make_snippet that takes a string as an argument and returns the first five words and then a '...' if there are more than that.
-
 require "make_snippet"
 
 RSpec.describe "make_snippet method" do
