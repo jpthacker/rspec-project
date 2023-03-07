@@ -11,10 +11,10 @@
 ```ruby
 
 # `identify_task` checks if a string includes the substring `#TODO`. 
-task_message = identify_task(text)
+boolean_value = identify_task(text)
 
-text: a string (e.g. "To do: make a list.")
-uppercase_words: a confirmation message (e.g. "This text contains an outstanding task.")
+text: a string (e.g. "#TODO: make a list.")
+boolean_value: e.g. true
 
 # The method doesn't print anything or have any other side-effects
 ```
@@ -26,7 +26,7 @@ _Make a list of examples of what the method will take and return._
 ```ruby
 # EXAMPLE
 
-extract_uppercase("hello WORLD") => ["WORLD"]
+extract_uppercase("hello Ray") => ["WORLD"]
 extract_uppercase("HELLO WORLD") => ["HELLO", "WORLD"]
 extract_uppercase("hello world") => []
 extract_uppercase("hello WoRLD") => []
