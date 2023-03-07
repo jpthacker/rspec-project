@@ -1,4 +1,4 @@
-def reading_time_estimator(word_count)
+def estimate_reading_time(word_count)
     if !word_count.is_a?(Integer)
         fail "Error: word count must be an integer"
     end
