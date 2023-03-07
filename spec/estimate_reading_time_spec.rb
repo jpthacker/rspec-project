@@ -1,7 +1,7 @@
 require "estimate_reading_time"
 
 RSpec.describe "estimate_reading_time method" do
-    it "returns an message" do
+    it "returns a message" do
         expect(estimate_reading_time(1)).to eq "This text will take 1 minute to read"
     end
     it "takes an argument" do
