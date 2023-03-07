@@ -1,7 +1,3 @@
-# {{PROBLEM}} Method Design Recipe
-
-Copy this into a `recipe.md` in your project and fill it out.
-
 ## 1. Describe the Problem
 
 _Put or write the user story here. Add any clarifying notes you might have._
