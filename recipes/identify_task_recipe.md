@@ -10,7 +10,7 @@
 
 ```ruby
 
-# `identify_task` checks if a string includes the substring `#TODO`. 
+# `identify_task` checks if a string includes the substring `#TODO`.
 boolean_value = identify_task(text)
 
 text: a string (e.g. "#TODO: make a list.")
@@ -26,13 +26,11 @@ _Make a list of examples of what the method will take and return._
 ```ruby
 # EXAMPLE
 
-extract_uppercase("hello Ray") => ["WORLD"]
-extract_uppercase("HELLO WORLD") => ["HELLO", "WORLD"]
-extract_uppercase("hello world") => []
-extract_uppercase("hello WoRLD") => []
-extract_uppercase("hello WORLD!") => ["WORLD"]
-extract_uppercase("") => []
-extract_uppercase(nil) throws an error
+identify_task("") => "Error: please enter a valid string"
+identify_task(nil) => "Error: please enter a valid string"
+identify_task("#TODO: clean bathroom") => true
+identify_task("Hoover house") => false
+identify_task("#TODO: clean bathroom; #TODO: clean kitchen") => true
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
