@@ -28,16 +28,8 @@ class Diary
     str = ""
     @diary_entries.each do |entry|
       words = entry.contents.split(" ").size
-      if words > str.split(" ").size && words <= target_words
-        str = entry.contents
-      end
+      str = entry.contents if words > str.split(" ").size && words <= target_words
     end
-    i = 0
-    while i < @diary_entries.size do
-    if @diary_entries[i].contents == str
-        return @diary_entries[i]
-    end
-      i += 1
-    end
+    @diary_entries.find {|entry| entry.contents == str}
   end
 end
