@@ -47,26 +47,26 @@ RSpec.describe DiaryEntry do
         it "returns a chunk of the contents" do
             diary_entry = DiaryEntry.new("today", "this happened today")
             diary_entry.reading_chunk(1, 1)
-            # expect(diary_entry.words_read).to eq "this"
+            expect(diary_entry.words_read).to eq "this"
             diary_entry = DiaryEntry.new("today", "this happened today")
             diary_entry.reading_chunk(2, 1)
-            # expect(diary_entry.words_read).to eq "this happened"
+            expect(diary_entry.words_read).to eq "this happened"
         end
         
         context "when it called multiple times" do
-            # it "stores the words read so far in an insatnce variable" do
-            #     diary_entry = DiaryEntry.new("today", "Lorem ipsum dolor sit amet.")
-            #     diary_entry.reading_chunk(1, 1)
-            #     diary_entry.reading_chunk(1, 1)
-            #     expect(diary_entry.words_read).to eq "Lorem ipsum"
-            # end
+            it "stores the words read so far in an insatnce variable" do
+                diary_entry = DiaryEntry.new("today", "Lorem ipsum dolor sit amet.")
+                diary_entry.reading_chunk(1, 1)
+                diary_entry.reading_chunk(1, 1)
+                expect(diary_entry.words_read).to eq "Lorem ipsum"
+            end
 
             it "returns only the most recent chunk of read words" do
                 diary_entry = DiaryEntry.new("today", "Lorem ipsum dolor sit amet.")
                 diary_entry.reading_chunk(1, 1)
                 diary_entry.reading_chunk(1, 1)
                 expect(diary_entry.reading_chunk(1, 1)).to eq "dolor"
-                # expect(diary_entry.words_read).to eq "Lorem ipsum dolor"
+                expect(diary_entry.words_read).to eq "Lorem ipsum dolor"
             end
 
             context "when the entire contents has been read" do

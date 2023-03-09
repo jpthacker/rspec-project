@@ -36,10 +36,7 @@ RSpec.describe "Diary Integration" do
         diary_entry_3 = DiaryEntry.new("entry_3", "this happened the day before yesterday.")
         diary.add(diary_entry_1)
         diary.add(diary_entry_2)
-        diary.add(diary_entry_3)
-        # diary_entry_1.reading_chunk(2, 3)
-        # diary_entry_2.reading_chunk(2, 3)
-        # diary_entry_3.reading_chunk(2, 3)    
+        diary.add(diary_entry_3)   
         expect(diary.find_best_entry_for_reading_time(2, 3)).to eq diary_entry_3
     end
 end
