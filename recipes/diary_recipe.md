@@ -77,7 +77,7 @@ diary.add(diary_entry_1)
 diary.add(diary_entry_2)
 diary.all # => [diary_entry_1, diary_entry_2]
 
-# 2 - returns word count of all diary entries
+# 2 - returns the word count of all diary entries
 diary = Diary.new
 diary_entry_1 = DiaryEntry.new("entry_1", "this happened today")
 diary_entry_2 = DiaryEntry.new("entry_2", "this happened yesterday")
@@ -97,10 +97,7 @@ diary.reading_time(1) # => 6
 diary = Diary.new
 diary_entry_1 = DiaryEntry.new("entry_1", "this happened today")
 diary_entry_2 = DiaryEntry.new("entry_2", "this happened yesterday. It was my birthday!")
-diary_entry_2 = DiaryEntry.new("entry_3", "this happened the day before yesterday.")
-diary.add(diary_entry_1)
-diary.add(diary_entry_2)
-diary.add(diary_entry_3)
+diary_entry_3 = DiaryEntry.new("entry_3", "this happened the day before yesterday.")
 diary.find_best_entry_for_reading_time(2, 3) # => diary_entry_3
 ```
 

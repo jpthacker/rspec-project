@@ -32,7 +32,7 @@ class DiaryEntry
             @words_read = words.slice(0, no_of_words).join(" ")
             return @words_read
         end
-        words_to_add = words[@words_read.split(" ").length, no_of_words].join(" """)
+        words_to_add = words[@words_read.split(" ").length, no_of_words].join(" ")
         @words_read << " " + words_to_add
         words_to_add
     end
