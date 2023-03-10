@@ -53,7 +53,7 @@ RSpec.describe "organiser integration" do
         todo_list = TodoList.new
         organiser = Organiser.new(diary, todo_list)
         entry_1 = DiaryEntry.new("01.03.23", "I met Ted. His number is 07527398801")
-        entry_2 = DiaryEntry.new("05.03.23", "It snowed today.")
+        entry_2 = DiaryEntry.new("05.03.23", "It snowed today. It was -27 degrees")
         entry_3 = DiaryEntry.new("10.03.21", "I met someone called Sally. Her number is 07865436864.")
         working_diary = organiser.diary
         diary.add(entry_1)

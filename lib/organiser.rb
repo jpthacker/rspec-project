@@ -12,7 +12,6 @@ class Organiser
     def contacts
       all_entries = []
       @diary.all.each {|entry| all_entries << entry.contents}
-      words = all_entries.map {|str| str.gsub(/[^0-9{11}]/, "")}
-      words.filter {|entry| entry[0..1] == "07"}
+      all_entries.map {|str| str.gsub(/[^0-9{11}]/, "")}.filter {|entry| entry[0..1] == "07"}
     end
   end
