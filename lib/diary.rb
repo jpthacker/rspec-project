@@ -1,3 +1,5 @@
+require_relative "diary_entry"
+
 class Diary
   def initialize
     @diary_entries = []

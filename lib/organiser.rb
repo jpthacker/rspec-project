@@ -1,10 +1,18 @@
+require_relative "diary"
+require_relative "todo_list"
+require_relative "diary_entry"
+
 class Organiser
     def initialize(diary, todo_list) # diary and todo_list are instances of Diary and TodoList, respectively
-      @diary # => A list of instances of diary entries added to the organiser
-      @todo_list # => A list of instances tasks added to the organiser
+      @diary = diary
+      @todo_list = todo_list
     end
+    attr_accessor :diary, :todo_list
   
     def contacts
-      # Returns a list of mobile numbers contained within @diary
+      all_entries = []
+      @diary.all.each {|entry| all_entries << entry.contents}
+      words = all_entries.map {|str| str.gsub(/[^0-9{11}]/, "")}
+      words.filter {|entry| entry[0..1] == "07"}
     end
   end

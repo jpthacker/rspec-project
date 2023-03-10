@@ -32,10 +32,11 @@ class Organiser
     @diary # => A list of instances of diary entries added to the organiser
     @todo_list # => A list of instances tasks added to the organiser
   end
+  attr_accessor :diary, :todo_list
 
-  def contacts
-    # Returns a list of mobile numbers contained within @diary
-  end
+    def contacts
+        # Returns a list of mobile numbers contained within @diary
+    end
 end
 
 class Diary
@@ -43,6 +44,7 @@ class Diary
   end
 
   def add(entry) # entry is an instance of DiaryEntry
+    # Adds diary entry to @diary 
     # Returns nothing
   end
 
@@ -157,45 +159,55 @@ end
 
 # 1. Returns all diary entries in the user's diary
 diary = Diary.new
-todo_list = Todo.new
+todo_list = TodoList.new
 organiser = Organiser.new(diary, todo_list)
 entry_1 = DiaryEntry.new("09.03.23", "It snowed.")
 entry_2 = DiaryEntry.new("10.03.23", "It snowed again. Then it thawed.")
-organiser.diary.add(entry_1)
-organiser.diary_add(entry_2)
-organiser.diary.all # => [entry_1, entry_2]
+working_diary = organiser.diary
+diary.add(entry_1)
+diary.add(entry_2)
+diary.all # => [entry_1, entry_2]
+organiser.diary = working_diary
+organiser.diary # => working_diary
 
 # 2. Returns the best entry based on the user's reading time
-diary = Diary.new
-todo_list = Todo.new
+       diary = Diary.new
+todo_list = TodoList.new
 organiser = Organiser.new(diary, todo_list)
 entry_1 = DiaryEntry.new("entry_1", "this happened today")
 entry_2 = DiaryEntry.new("entry_2", "this happened yesterday. It was my birthday!")
 entry_3 = DiaryEntry.new("entry_3", "this happened the day before yesterday.")
-organiser.diary.add(entry_1)
-organiser.diary_add(entry_2)
-organiser.diary.add(entry_3)
-diary.find_best_entry_for_reading_time(2, 3) # => diary_entry_3
+working_diary = organiser.diary
+diary.add(entry_1)
+diary.add(entry_2)
+diary.add(entry_3)
+diary.find_best_entry_for_reading_time(2, 3) # => entry_3
+organiser.diary = working_diary
+organiser.get_diary # => working_diary
 
 # 3. Returns the tasks in the user's todo list
 diary = Diary.new
-todo_list = Todo.new
+todo_list = TodoList.new
 organiser = Organiser.new(diary, todo_list)
 task_1 = Todo.new("Hoover house")
 task_2 = Todo.new("Make bed")
-organiser.todo_list.add(task_1)
-organiser.todo_list.add(task_2)
-todo_list.incomplete # => [task_1, task_2]
+working_todo_list = organiser.todo_list
+todo_list.add(task_1)
+todo_list.add(task_2)
+organiser.todo_list = working_todo_list
+organiser.todo_list # => working_todo_list
 
 # 4. Returns a list of all the mobile numbers in the user's diary
 diary = Diary.new
-todo_list = Todo.new
+todo_list = TodoList.new
 organiser = Organiser.new(diary, todo_list)
 entry_1 = DiaryEntry.new("01.03.23", "I met Ted. His number is 075273988010")
 entry_2 = DiaryEntry.new("05.03.23", "It snowed today.")
 entry_3 = DiaryEntry.new("10.03.21", "I met someone called Sally. Her number is 07865436864.")
-organiser.diary.add(entry_1)
-organiser.diary_add(entry_2)
-organiser.diary.add(entry_3)
-organiser.contacts = [075273988010, 07865436864]
+working_diary = organiser.diary
+diary.add(entry_1)
+diary.add(entry_2)
+diary.add(entry_3)
+organiser.diary = working_diary
+organiser.contacts # => ["07527398010", "07865436864"]
 ```
